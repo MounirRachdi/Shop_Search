@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Shop_Search.Views.ShopPage"  BackgroundColor="#443d42">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold"/>
+
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        
+        <StackLayout Orientation="Vertical" Padding="20">
+            <StackLayout BackgroundColor="White" Padding="20">
+                <Label Text="Search" FontAttributes="Bold"></Label>
+
+                <SearchBar x:Name="MainSearchBar" TextChanged="Search_Product"
+                    />
+            </StackLayout>
+            <StackLayout  BackgroundColor="White" Margin="0, 10, 0, 0">
+                <ListView x:Name="listview1" HasUnevenRows="True" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="10" >
+                                    <StackLayout  HorizontalOptions="StartAndExpand" >
+                                    <Image x:Name="image1" Aspect="AspectFill"  HeightRequest ="70" WidthRequest="70" Source="{Binding ImgUrl}" HorizontalOptions="Start" />
+                                </StackLayout>
+                                    <StackLayout Orientation="Vertical"  HorizontalOptions="EndAndExpand" Margin="10" >
+                                        <Label Text="{Binding name}" Style="{StaticResource LabelStyle}" />
+                                        <Label Text="{Binding description}"   />
+                                            <Label Text="{Binding price}" Style="{StaticResource LabelStyle}"  />
+                                </StackLayout>
+                            </StackLayout>
+                            
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
